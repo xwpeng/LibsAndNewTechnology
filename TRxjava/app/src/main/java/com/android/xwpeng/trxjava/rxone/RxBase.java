@@ -6,8 +6,13 @@ import rx.Observable;
 import rx.Observer;
 import rx.Subscriber;
 import rx.functions.Action1;
+import rx.subjects.Subject;
+
+import static rx.Observable.create;
+import static rx.Observable.just;
 
 /**
+ * Rx1.0基础
  * Created by xwpeng on 2018/4/23.
  */
 
@@ -95,7 +100,16 @@ public class RxBase {
      * 实验just与from
      */
     public static void cc() {
-        Observable.just("1", "2", "3").subscribe(new Action1<String>() {
+        Observable<String> a = Observable.just("1", "2", "3");
+        create(su -> {
+
+        }).subscribe(new Action1<Object>() {
+            @Override
+            public void call(Object o) {
+
+            }
+        });
+        just("1", "2", "3").subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
                 Log.e(TAG, "call: " + s);
@@ -107,5 +121,13 @@ public class RxBase {
                 Log.e(TAG, "call: " + s);
             }
         });
+    }
+
+    /**
+     * 测试主题
+     */
+    public static void dd() {
+        Subject.create(subscriber -> {
+        }).subscribe();
     }
 }
