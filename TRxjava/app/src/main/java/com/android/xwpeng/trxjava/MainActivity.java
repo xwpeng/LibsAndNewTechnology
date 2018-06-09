@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.android.xwpeng.trxjava.rxone.AssistOpration;
 import com.android.xwpeng.trxjava.rxone.CombinateOpration;
 import com.android.xwpeng.trxjava.rxone.CreateOpration;
 import com.android.xwpeng.trxjava.rxone.FilterOpration;
@@ -61,7 +62,20 @@ public class MainActivity extends AppCompatActivity {
 //        CombinateOpration.mergeWith();
 //        CombinateOpration.concat();
 //        CombinateOpration.zip();
-        CombinateOpration.combineLatest();
+//        CombinateOpration.combineLatest2();
+//        CombinateOpration.switchOnNext2();
+//        CombinateOpration.join();
+//        AssistOpration.delay();
+//        AssistOpration.doOnEach();
+//        AssistOpration.doOnNext();
+//        AssistOpration.doOnError();
+//        AssistOpration.doOnCompleted();
+//        AssistOpration.doOnTerminate();
+//        AssistOpration.finallyDo();
+//        AssistOpration.doAfterTerminate();
+//        AssistOpration.doOnSubsribe();
+//        AssistOpration.doOnUnsubscribe();
+        AssistOpration.subscribeOn();
     }
 
 }
