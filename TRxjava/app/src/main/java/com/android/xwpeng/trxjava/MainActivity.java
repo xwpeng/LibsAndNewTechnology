@@ -5,8 +5,11 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.android.xwpeng.trxjava.rxone.AssistOpration;
+import com.android.xwpeng.trxjava.rxone.BooleanOpration;
 import com.android.xwpeng.trxjava.rxone.CombinateOpration;
+import com.android.xwpeng.trxjava.rxone.ConditionOpration;
 import com.android.xwpeng.trxjava.rxone.CreateOpration;
+import com.android.xwpeng.trxjava.rxone.ErrorOpration;
 import com.android.xwpeng.trxjava.rxone.FilterOpration;
 import com.android.xwpeng.trxjava.rxone.RxBase;
 import com.android.xwpeng.trxjava.rxone.TransferOpration;
@@ -75,7 +78,19 @@ public class MainActivity extends AppCompatActivity {
 //        AssistOpration.doAfterTerminate();
 //        AssistOpration.doOnSubsribe();
 //        AssistOpration.doOnUnsubscribe();
-        AssistOpration.subscribeOn();
+//        AssistOpration.subscribeOn();
+//        AssistOpration.observeOn();
+//        AssistOpration.timeout();
+//        ErrorOpration.onErrorReturn();
+//        ErrorOpration.onErrorResumeNext();
+//        ErrorOpration.onExceptionResumeNext();
+//        ErrorOpration.retry();
+//        ErrorOpration.retryWhen();
+//        BooleanOpration.all();
+//        BooleanOpration.contains();
+//        BooleanOpration.isEmpty();
+//        ConditionOpration.amb();
+        ConditionOpration.defaultIfEmpty();
     }
 
 }

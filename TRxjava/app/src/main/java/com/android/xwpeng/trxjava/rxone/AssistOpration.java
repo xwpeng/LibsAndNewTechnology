@@ -28,11 +28,11 @@ public class AssistOpration {
      * delay操作符
      */
     public static void delay() {
-     Observable<Long> ob = Observable.create((Observable.OnSubscribe<Long>) subscriber -> {
-         subscriber.onNext(System.currentTimeMillis());
-         subscriber.onCompleted();
-     }).delay(10, TimeUnit.SECONDS);
-     ob.subscribe(integer -> Log.e(TAG, "" + (System.currentTimeMillis() - integer)));
+        Observable<Long> ob = Observable.create((Observable.OnSubscribe<Long>) subscriber -> {
+            subscriber.onNext(System.currentTimeMillis());
+            subscriber.onCompleted();
+        }).delay(10, TimeUnit.SECONDS);
+        ob.subscribe(integer -> Log.e(TAG, "" + (System.currentTimeMillis() - integer)));
     }
 
     /**
@@ -64,7 +64,7 @@ public class AssistOpration {
         ob.subscribe(new Subscriber<String>() {
             @Override
             public void onCompleted() {
-              Log.e(TAG, "onCompleted");
+                Log.e(TAG, "onCompleted");
             }
 
             @Override
@@ -86,7 +86,7 @@ public class AssistOpration {
         Observable<String> ob = Observable.create(subscriber -> {
             subscriber.onNext("1");
         });
-       ob = ob.doOnNext(s -> Log.e(TAG, "doOnNext"));
+        ob = ob.doOnNext(s -> Log.e(TAG, "doOnNext"));
         ob.subscribe(s -> Log.e(TAG, s));
     }
 
@@ -169,7 +169,7 @@ public class AssistOpration {
      */
     public static void doOnUnsubscribe() {
         Observable<String> ob = Observable.create(subscriber -> {
-                subscriber.onNext("1");
+            subscriber.onNext("1");
 //            subscriber.onError(new Throwable("aaa"));
 //            throw  new Exception("aaaaa");
 //           subscriber.onCompleted();
@@ -184,20 +184,72 @@ public class AssistOpration {
      * subscribeOn操作符
      */
     public static void subscribeOn() {
-         Observable.create((Observable.OnSubscribe<String>) subscriber -> {
-                 Log.e(TAG,  Thread.currentThread().getName());
-                 subscriber.onNext("1");
-         }).subscribeOn(Schedulers.io())
-                 .subscribeOn(AndroidSchedulers.mainThread())
-                 .subscribeOn(Schedulers.computation())
-                 .subscribeOn(Schedulers.newThread())
-                 .subscribeOn(Schedulers.immediate())
-                 .subscribeOn(Schedulers.trampoline())
+        Observable.create((Observable.OnSubscribe<String>) subscriber -> {
+            subscriber.onNext("1");
+            Log.e(TAG, "source  " + Thread.currentThread().getName());
+        })
+                .doOnSubscribe(() -> {
+                    Log.e(TAG, "doOnSubsribe1");
+                    Log.e(TAG, "doOnSubsribe1  " + Thread.currentThread().getName());
+                })
+                .subscribeOn(Schedulers.io())
+                .doOnSubscribe(() -> {
+                    Log.e(TAG, "doOnSubsribe2");
+                    Log.e(TAG, "doOnSubsribe2  " + Thread.currentThread().getName());
+                })
+//                .subscribeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.computation())
+//                .subscribeOn(Schedulers.newThread())
+//                .subscribeOn(Schedulers.immediate())
+//                .subscribeOn(Schedulers.trampoline())
 //       .doOnSubscribe(() -> Log.e(TAG, "doOnSubsribe"))
-        .subscribe(s -> Log.e(TAG, s), throwable -> Log.e(TAG, throwable.getMessage()), () -> Log.e(TAG, "subscribe OnCompleted"));
+                .subscribe(s -> Log.e(TAG, s), throwable -> Log.e(TAG, throwable.getMessage()), () -> Log.e(TAG, "subscribe OnCompleted"));
     }
 
+    /**
+     * observeOn操作符
+     */
+    public static void observeOn() {
+        Observable.create((Observable.OnSubscribe<String>) subscriber -> {
+            subscriber.onNext("1");
+        }).map(s -> {
+            Log.e(TAG, "map1 " + Thread.currentThread().getName());
+            return "map1";
+        }).subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.io())
+                .map(s -> {
+                    Log.e(TAG, "map2 " + Thread.currentThread().getName());
+                    return "map2";
+                })
+                .observeOn(Schedulers.computation())
+                .map(s -> {
+                    Log.e(TAG, "map3 " + Thread.currentThread().getName());
+                    return "map3";
+                })
+                .map(s -> {
+                    Log.e(TAG, "map4 " + Thread.currentThread().getName());
+                    return "map4";
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(s -> {
+                    Log.e(TAG, s);
+                    Log.e(TAG, "accpte next in " + Thread.currentThread().getName());
+                });
+    }
 
-
+    /**
+     * timeout操作符
+     */
+    public static void timeout() {
+        Observable.create((Observable.OnSubscribe<String>) subscriber -> {
+            for (int i = 0; i < 10; i++) {
+                SystemClock.sleep(i * 1000);
+                subscriber.onNext("" + i);
+            }
+            subscriber.onCompleted();
+        }).subscribeOn(Schedulers.io())
+                .timeout(3, TimeUnit.SECONDS, Observable.just("error"))
+                .subscribe(s -> Log.e(TAG, s), throwable -> Log.e(TAG, throwable.getMessage()));
+    }
 
 }

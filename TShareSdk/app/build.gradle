@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion 26
+    defaultConfig {
+        applicationId "com.android.xwpeng.tsharesdk"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+MobSDK {
+    appKey "26576a3de8960"
+    appSecret "2e1b59dc172be526320b55739f6eec82"
+
+    ShareSDK {
+        devInfo{
+            Wechat {
+                appId "wxb07485b5aeef76f7"
+                appSecret "82b0b8335f37647c0acad46b2f3a2a0c"
+            }
+            QQ {
+                appId "1106892027"
+                appKey "6sGNkQ33MNtnMZ3F"
+                shareByAppClient true
+            }
+            WechatMoments {
+                appId "wxb07485b5aeef76f7"
+                appSecret "82b0b8335f37647c0acad46b2f3a2a0c"
+            }
+        }
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:26.1.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
