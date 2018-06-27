@@ -206,6 +206,21 @@ public class AssistOpration {
                 .subscribe(s -> Log.e(TAG, s), throwable -> Log.e(TAG, throwable.getMessage()), () -> Log.e(TAG, "subscribe OnCompleted"));
     }
 
+    public static void subscribeOn2() {
+        Observable.create((Observable.OnSubscribe<String>) subscriber -> {
+            subscriber.onNext("1");
+            Log.e(TAG, "source  " + Thread.currentThread().getName());
+        })
+                .subscribeOn(Schedulers.io())
+                .observeOn(Schedulers.computation())
+                .subscribe(new Action1<String>() {
+                    @Override
+                    public void call(String s) {
+                        Log.e(TAG, "onnext  " + Thread.currentThread().getName());
+                    }
+                });
+    }
+
     /**
      * observeOn操作符
      */

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.android.xwpeng.trxjava.rxone.AllItemTransferOpration;
 import com.android.xwpeng.trxjava.rxone.AssistOpration;
 import com.android.xwpeng.trxjava.rxone.BooleanOpration;
 import com.android.xwpeng.trxjava.rxone.CombinateOpration;
@@ -79,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 //        AssistOpration.doOnSubsribe();
 //        AssistOpration.doOnUnsubscribe();
 //        AssistOpration.subscribeOn();
+//        AssistOpration.subscribeOn2();
 //        AssistOpration.observeOn();
 //        AssistOpration.timeout();
 //        ErrorOpration.onErrorReturn();
@@ -89,8 +91,14 @@ public class MainActivity extends AppCompatActivity {
 //        BooleanOpration.all();
 //        BooleanOpration.contains();
 //        BooleanOpration.isEmpty();
-//        ConditionOpration.amb();
-        ConditionOpration.defaultIfEmpty();
+        ConditionOpration.amb();
+//        ConditionOpration.defaultIfEmpty();
+//        AllItemTransferOpration.toList();
+//        AllItemTransferOpration.toSortedList();
+//        AllItemTransferOpration.toSortedList2();
+//        AllItemTransferOpration.toMap();
+//        AllItemTransferOpration.toMap2();
+//        AllItemTransferOpration.toMap3();
     }
 
 }

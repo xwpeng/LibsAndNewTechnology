@@ -45,7 +45,7 @@ public class CombinateOpration {
     }
 
     /**
-     * merge操作符
+     * concat操作符
      */
     public static void concat() {
         Observable.concat(Observable.just(1, 2, 3), Observable.just(1, 2))

@@ -29,7 +29,10 @@ public class BooleanOpration {
             subscriber.onCompleted();
         }).subscribeOn(Schedulers.io())
                 .all(s -> s > -1)
-                .subscribe(s -> Log.e(TAG, s + ""), throwable -> Log.e(TAG, throwable.getMessage()), () -> Log.e(TAG, "accpte oncompeted"));
+                .subscribe(s -> {
+                    Log.e(TAG, s + "");
+
+                }, throwable -> Log.e(TAG, throwable.getMessage()), () -> Log.e(TAG, "accpte oncompeted"));
     }
 
     /**
