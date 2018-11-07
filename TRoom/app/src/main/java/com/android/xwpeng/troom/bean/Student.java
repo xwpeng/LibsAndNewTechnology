@@ -14,13 +14,18 @@ import android.support.annotation.IntDef;
  * Created by xwpeng on 2018/7/12.
  */
 @Entity(tableName = "student"
-        , indices = {@Index(value = {"name"}, unique = true)
-        , @Index(value = "class_id", unique = true)}
-        , foreignKeys = @ForeignKey(entity = Class.class
-        , parentColumns = "id"
-        , childColumns = "class_id"
-        , onDelete = ForeignKey.SET_NULL)
-)
+        , indices = {
+                 @Index(value = {"name"}, unique = true)
+                , @Index(value = "class_id", unique = true)
+         }
+        , foreignKeys = @ForeignKey(
+                     entity = Class.class
+                    , parentColumns = "id"
+                    , childColumns = "class_id"
+                    , onDelete = ForeignKey.SET_NULL
+                         )
+      )
+
 public class Student {
     @PrimaryKey
     public int id;
