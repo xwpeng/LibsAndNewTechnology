@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedHashMap;
 
@@ -13,6 +14,9 @@ public class MainActivity extends AppCompatActivity {
     @Inject
     Student mStudent;
     TextView mTv;
+    @Inject
+    Pot pot;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +25,9 @@ public class MainActivity extends AppCompatActivity {
         mTv = findViewById(R.id.tv);
         DaggerStudentComponent.create().inject(this);
         getStudentInfo();
-        LinkedHashMap<String, String> a = new LinkedHashMap<>();
+//         DaggerMainActivityComponent.create().inject(this);
+        String show = pot.show();
+        Toast.makeText(MainActivity.this, show, Toast.LENGTH_SHORT).show();
     }
 
     public void getStudentInfo() {
