@@ -14,9 +14,9 @@ public class StudentMoudle {
     }
 
 //    @Provides
-//    public String provideId() {
-//        return "2";
-//    }
+////    public String provideId() {
+////        return "2";
+////    }
 
     @Provides
     public int provideScore() {
