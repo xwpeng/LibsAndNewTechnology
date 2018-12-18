@@ -1,6 +1,5 @@
 package xwpeng.com.tcomponent;
 
-import dagger.Component;
 import dagger.Subcomponent;
 
 /**
@@ -11,5 +10,5 @@ import dagger.Subcomponent;
 @Subcomponent(modules = PotModule.class)
 public interface PotComponent {
     //    Pot getPot();
-    MainActivityComponent plus();
+//      MainActivityComponent getSub();
 }

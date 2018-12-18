@@ -3,6 +3,5 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#33bd77</color>
-    <color name="accent_press">#3333bd77</color>
     <color name="disable">#bbbbbb</color>
 </resources>

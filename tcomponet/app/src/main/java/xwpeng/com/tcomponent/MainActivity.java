@@ -1,5 +1,6 @@
 package xwpeng.com.tcomponent;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
@@ -7,8 +8,10 @@ import android.widget.Toast;
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity {
+//    @Inject
+//    Pot pot;
     @Inject
-    Pot pot;
+    String content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,8 +24,9 @@ public class MainActivity extends AppCompatActivity {
 //                        .flowerComponent(DaggerFlowerComponent.create())
 //                        .build())
 //                .build().inject(this);
-        DaggerFlowerComponent.create().plus(new PotModule()).plus().inject(this);
-        String show = pot.show();
-        Toast.makeText(MainActivity.this, show, Toast.LENGTH_SHORT).show();
+//        DaggerFlowerComponent.create().getSub().getSub().inject(this);
+//        String show = pot.show();
+        DaggerAppComponent.create().getSub().inject(this);
+        Toast.makeText(this, content, Toast.LENGTH_SHORT).show();
     }
 }

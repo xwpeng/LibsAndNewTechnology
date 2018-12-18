@@ -1,5 +1,6 @@
 package com.android.xwpeng.trxjava2;
 
+import android.annotation.SuppressLint;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -47,11 +48,13 @@ public class MainActivity extends AppCompatActivity {
 //        tMaybe();
 //        tCompletable();
 //        TReactivePull.tSync();
-        TReactivePull.tAsync();
-        TReactivePull.request(196);
+//        TReactivePull.tAsync();
+//        TReactivePull.request(196);
+        tMoreFinally();
     }
 
 
+    @SuppressLint("CheckResult")
     private void nomal() {
         Flowable.create((FlowableOnSubscribe<String>) emitter -> emitter.onComplete(), BackpressureStrategy.BUFFER)
                 .subscribeOn(Schedulers.io())
@@ -164,5 +167,13 @@ public class MainActivity extends AppCompatActivity {
                 Log.e(TAG, "onError: " + e.getMessage());
             }
         });
+    }
+
+    private void tMoreFinally(){
+        Flowable.just(1).doFinally(
+                () -> Log.e(TAG, "doFinally1")
+        ).doFinally(
+                () -> Log.e(TAG, "doFinally2")
+        ).subscribe();
     }
 }

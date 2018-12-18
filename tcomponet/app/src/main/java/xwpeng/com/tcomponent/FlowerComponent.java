@@ -1,6 +1,7 @@
 package xwpeng.com.tcomponent;
 
 import dagger.Component;
+import dagger.Subcomponent;
 
 /**
  * Created by xwpeng on 2018/11/29.
@@ -11,6 +12,5 @@ public interface FlowerComponent {
 //    Flower getRoseFlower();
 //    @LilyFlower
 //    Flower getLilyFlower();
-
-    PotComponent plus(PotModule potModule);
+//    PotComponent getSub();
 }
