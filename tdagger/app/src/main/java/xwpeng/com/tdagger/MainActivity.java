@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tcomponent);
+        setContentView(R.layout.activity_main);
         DaggerMainActivtyComponent.create().inject(this);
         Toast.makeText(this, pot.show(), Toast.LENGTH_SHORT).show();
     }
