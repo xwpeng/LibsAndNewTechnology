@@ -14,6 +14,11 @@ public class Pot {
 //        this.flower = flower;
 //    }
 
+//    @Inject
+//    public Pot(Rose rose) {
+//        this.flower = rose;
+//    }
+
     @Inject
     public Pot(@FlowerModule.IsRose Flower flower) {
         this.flower = flower;

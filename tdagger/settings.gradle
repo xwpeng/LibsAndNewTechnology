@@ -1,1 +1,1 @@
-include ':app', ':tcomponent', ':myapplication'
+include ':app', ':tcomponent', ':tsubcomponent', ':tscope'

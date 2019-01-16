@@ -25,9 +25,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     api 'com.google.dagger:dagger:2.19'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.19'
-    api 'com.google.dagger:dagger-android:2.19'
-    api 'com.google.dagger:dagger-android-support:2.19'
-    // if you use the support libraries
-    annotationProcessor 'com.google.dagger:dagger-android-processor:2.19'
     implementation project(':tcomponent')
+    implementation project(':tsubcomponent')
+    implementation project(':tscope')
 }

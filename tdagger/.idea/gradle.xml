@@ -9,8 +9,9 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/myapplication" />
             <option value="$PROJECT_DIR$/tcomponent" />
+            <option value="$PROJECT_DIR$/tscope" />
+            <option value="$PROJECT_DIR$/tsubcomponent" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
