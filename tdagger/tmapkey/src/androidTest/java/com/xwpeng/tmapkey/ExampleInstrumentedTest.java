@@ -23,4 +23,10 @@ public class ExampleInstrumentedTest {
 
         assertEquals("com.xwpeng.tmapkey", appContext.getPackageName());
     }
+
+    @Test
+    public void testMap(){
+        MainActivityComponent mainActivityComponent = DaggerMainActivityComponent.create();
+        mainActivityComponent.inject(this);
+    }
 }

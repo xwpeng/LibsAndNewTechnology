@@ -1,1 +1,1 @@
-include ':app', ':tcomponent', ':tsubcomponent', ':tscope', ':tmapkey'
+include ':app', ':tcomponent', ':tsubcomponent', ':tscope', ':tmapkey', ':tlazy'

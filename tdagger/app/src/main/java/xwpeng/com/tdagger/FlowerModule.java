@@ -13,24 +13,41 @@ import dagger.Provides;
  */
 @Module
 public class FlowerModule {
-    @Qualifier
-    @Retention(RetentionPolicy.RUNTIME)
-    public @interface IsLily{}
+    //带参注入
+    private String name;
+
+    @Provides
+    String nameProvider(){
+        return name;
+    }
+
+    FlowerModule(String name) {
+        this.name = name;
+    }
 
     @Qualifier
     @Retention(RetentionPolicy.RUNTIME)
-    public @interface IsRose{}
+    public @interface IsLily {
+    }
+
+    @Qualifier
+    @Retention(RetentionPolicy.RUNTIME)
+    public @interface IsRose {
+    }
 
     @Provides
 //    @Named("Lily")
     @IsLily
-    Flower provideLily(){
+    Flower provideLily() {
         return new Lily();
     }
+
     @Provides
 //    @Named("Rose")
     @IsRose
-    Flower provideRose(){
+    Flower provideRose(String name) {
         return new Rose();
     }
+
+
 }

@@ -25,4 +25,5 @@ public class MapModule {
     public String bar(){
         return "bar value";
     }
+
 }

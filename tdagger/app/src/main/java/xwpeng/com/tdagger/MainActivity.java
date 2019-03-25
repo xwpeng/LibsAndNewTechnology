@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scope_main);
-        DaggerMainActivtyComponent.create().inject(this);
+        DaggerMainActivtyComponent.builder().flowerModule(new FlowerModule("kk")).build().inject(this);
         Toast.makeText(this, pot.show(), Toast.LENGTH_SHORT).show();
     }
 }

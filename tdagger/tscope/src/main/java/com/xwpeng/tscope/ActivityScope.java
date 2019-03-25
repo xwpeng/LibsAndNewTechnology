@@ -1,7 +1,5 @@
 package com.xwpeng.tscope;
 
-import java.lang.annotation.Retention;
-
 import javax.inject.Scope;
 
 /**
