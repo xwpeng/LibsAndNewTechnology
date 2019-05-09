@@ -1,1 +1,1 @@
-include ':app', ':tmapkey', ':tlazy', ':tsubcomponent', ':tscopes', ':tcomponents', ':dagger2todomvp', ':tandroiddagger'
+include ':app', ':tmapkey', ':tlazy', ':tsubcomponent', ':tscopes', ':tcomponents', ':dagger2todomvp', ':tandroiddagger', ':daggeranroidmvp'

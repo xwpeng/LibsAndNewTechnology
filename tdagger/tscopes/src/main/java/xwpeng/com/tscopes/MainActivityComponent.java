@@ -1,7 +1,5 @@
 package xwpeng.com.tscopes;
 
-import javax.inject.Singleton;
-
 import dagger.Component;
 
 /**

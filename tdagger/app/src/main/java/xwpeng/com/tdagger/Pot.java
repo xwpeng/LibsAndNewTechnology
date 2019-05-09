@@ -7,7 +7,9 @@ import javax.inject.Named;
  * Created by xwpeng on 2018/11/23.
  */
 public class Pot {
-    private Flower flower;
+    @FlowerModule.IsRose
+    @Inject
+    Flower flower;
 //
 //    @Inject
 //    public Pot(@Named("Rose") Flower flower) {
@@ -20,12 +22,12 @@ public class Pot {
 //    }
 
     @Inject
-    public Pot(@FlowerModule.IsRose Flower flower) {
-        this.flower = flower;
+    public Pot() {
     }
 
     public String show() {
         return flower.whisper();
     }
+
 
 }
