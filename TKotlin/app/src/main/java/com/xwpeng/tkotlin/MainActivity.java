@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
      public class AA<T>{
 
     }
+
     interface A {
         int get();
     }

@@ -19,7 +19,7 @@ class Goo:Foo()
 fun tas(){
     val foo = Foo()
     val goo = Goo()
-    println(foo as Goo)
+//    println(foo as Goo)
     println(foo as? Goo)
     println(goo as Foo)
 }

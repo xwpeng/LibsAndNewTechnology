@@ -6,7 +6,7 @@ fun main() {
 //   emptyClass()
 //constuct()
 //    construc1()
-//    constructor2()
+//    construc2()
 //    tAbsteact()
     tInterface()
 }
@@ -15,8 +15,10 @@ fun main() {
  */
 fun emptyClass() {
     val emptyClass = EmptyClass()
+    //变量对象
     println(emptyClass)
     println(emptyClass is EmptyClass)
+    //类型对象
     println(emptyClass::class)
 }
 
@@ -72,7 +74,7 @@ class Person2() {
     }
 }
 
-fun constructor2() {
+fun construc2() {
     val p2 = Person2("1")
     p2.sex = "男"
     println("${p2}")
@@ -83,29 +85,29 @@ class Rectangle : Shape()
 class Circle : Shape()
 class Triangle : Shape()
 
-abstract class Car {
+abstract class Car(open var userId : String) {
     abstract var name: String
-    var userAge: Int = 0
+    open var userAge: Int = 0
     abstract override fun toString(): String
     open fun click() {
         println("car click")
     }
 }
 
-class BaoMa(override var name: String) : Car() {
+class BaoMa(override var name: String, override var userId: String) : Car(userId) {
+    override var userAge:Int = 1
     override fun toString(): String {
-        return "BaoMa(name='$name'useage='$userAge')"
+        return "BaoMa(name='$name'useage='$userAge'id='$userId')"
     }
 
     override fun click() {
         println("BaoMa click")
         println("${this::class.simpleName} click")
-
     }
 }
 
 fun tAbsteact() {
-    var baoma = BaoMa("aa");
+    var baoma = BaoMa("aa", "121");
     baoma.userAge = 1
     baoma.click()
     println("${baoma}")
@@ -141,6 +143,5 @@ class ServiceImpl(override val name: String, override val owner: String) : Proje
 }
 
 fun tInterface() {
-var s = ServiceImpl("xwpeng15", "xwpeng16")
-    s.save("gold")
+ ServiceImpl("xwpeng15", "xwpeng16").save("gold")
 }

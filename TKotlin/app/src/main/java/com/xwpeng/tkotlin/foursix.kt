@@ -19,7 +19,7 @@ enum class Color(val rgb:Int) {
 }
 
 fun main(){
-    val north = Direction.NORTH;
+    val north = Direction.NORTH
     println(north.name)
     println(north.ordinal)
     println(north is Direction)

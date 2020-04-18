@@ -23,8 +23,8 @@ fun main() {
 //    tLabel()
 //    tThrow()
 //    tLabel2()
-//    println(-Point(1, 1))
-//    println(Counter(1) + 10)
+    println(-Point(1, 1))
+    println(Counter(1) + 10)
     tInfix()
 }
 
@@ -40,7 +40,7 @@ fun tInfix(){
 
 fun max(a: Int, b: Int): Int {
     val max = if (a > b) a else b
-    return max;
+    return max
 }
 
 fun max3(a: Int, b: Int): Int {
@@ -75,9 +75,7 @@ fun sw(x: Int) {
         1 -> println("x == 1")
         2 -> println("x==2")
         parseInt(s) -> println("x 是 123")
-        else -> {
-            println("x default")
-        }
+        else -> println("x default")
     }
 }
 
@@ -93,7 +91,7 @@ fun sw2() {
 }
 
 fun fact(n: Int): Int {
-    var result = 1
+    val result: Int
     when (n) {
         0, 1 -> result = 1
         else -> result = n * fact(n - 1)
