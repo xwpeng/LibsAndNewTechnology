@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <import type="com.example.aac.databinding.User"/>
+        <import type="com.example.aac.databinding.User2"/>
+        <import type="com.example.aac.databinding.SUtil"/>
+        <import type="com.example.aac.databinding.DataBindingActivity.Listener"/>
+        <variable
+            name="userInfo"
+            type="User" />
+        <variable
+            name="userInfo2"
+            type="User2" />
+        <variable
+            name="listener"
+            type="Listener" />
+
+    </data>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".lifecycle.MainActivity"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{SUtil.up(userInfo.name), default = defaultName}"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            android:onClick="@{()->listener.onNameCLick(userInfo.name)}"
+            />
+
+        <TextView
+            android:id="@+id/tv_name2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo2.name, default = defaultName}"
+            android:textSize="20sp"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo2.password, default = defaultPwd}"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{userInfo.password, default = defaultPwd}"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@={userInfo2.password, default = defaultPwd}"
+            android:afterTextChanged="@{listener.afterPwqChange}"
+            android:layout_marginTop="20dp"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            bind:url="@{userInfo.name}" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

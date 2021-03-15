@@ -1,0 +1,2 @@
+include ':app'
+rootProject.name='电影指南'
