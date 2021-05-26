@@ -25,14 +25,22 @@
             </intent-filter>
         </activity>-->
 
-        <activity android:name=".livedata.LiveDataActivity">
+<!--        <activity android:name=".livedata.LiveDataActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
+<!--        <service android:name=".lifecycle.MainService"/>-->
+
+        <activity android:name=".livedata.bus.LiveDataBusActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <service android:name=".lifecycle.MainService"/>
     </application>
 
 </manifest>

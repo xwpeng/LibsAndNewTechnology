@@ -27,7 +27,7 @@ public class RxBase {
      */
     public static void aa() {
         //创建观察者，回调处理
-        Subscriber subscriber = new Subscriber() {
+        Subscriber<Object> subscriber = new Subscriber<Object>() {
             @Override
             public void onStart() {
                 super.onStart();
